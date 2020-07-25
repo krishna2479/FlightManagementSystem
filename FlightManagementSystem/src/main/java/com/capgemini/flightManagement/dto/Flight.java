@@ -12,10 +12,6 @@ public class Flight {
 	
 	@Id
 	@NotNull
-<<<<<<< HEAD
-=======
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
->>>>>>> branch 'master' of https://github.com/krishna2479/FlightManagementSystem.git
 	int flightId;
 	
 	
