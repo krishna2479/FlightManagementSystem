@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.flightManagement.dto.Flight;
+import com.capgemini.flightManagement.exception.FlightException;
 import com.capgemini.flightManagement.service.FlightServiceI;
 
 @RestController
@@ -25,6 +26,7 @@ public class FlightController {
 	@PostMapping("/addFlight")
 	public ResponseEntity<Object> addFlight(@Validated @RequestBody Flight flight)
 	{
+		if(flight.getSeatCapacity()>200)throw new FlightException("Seating Capacity should not exceeds 200");
 		flightservice.addFlight(flight);
 		return new ResponseEntity<>("Flight added Successfully",HttpStatus.OK);
 	}
@@ -45,6 +47,7 @@ public class FlightController {
 	@PutMapping ("/updateFlight/{flightId}")
 	public ResponseEntity<Object> updateFlight(@PathVariable("flightId") int flightId,@RequestBody Flight flight)
 	{
+		if(flight.getSeatCapacity()>200)throw new FlightException("Seating Capacity should not exceeds 200");
 	    flightservice.updateFlight(flightId, flight);
 	    return new ResponseEntity<>("Flight Updated SuccessFully", HttpStatus.OK);
 	}

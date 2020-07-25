@@ -27,11 +27,12 @@ public class FlightDaoImpl implements FlightDaoI {
 	public void deleteFlight(int flightId) {
 		// TODO Auto-generated method stub
 		Flight flight=entitymanager.find(Flight.class, flightId);
-		if(flight==null) 
+		if(flight==null) { 
 			throw new FlightNotFoundException("No such FlightId found to delete");
+		}
 		else
 			entitymanager.remove(flight);
-		entitymanager.flush();
+			entitymanager.flush();
 		
 	}
 
@@ -53,11 +54,16 @@ public class FlightDaoImpl implements FlightDaoI {
 	public void updateFlight(int flightId, Flight flight) {
 		// TODO Auto-generated method stub
 		Flight flightobject=entitymanager.find(Flight.class, flightId);
+		if(flightobject==null) { 
+			throw new FlightNotFoundException("FlightId not available to update");
+		}
+		else {
 		flightobject.setFlightNumber(flight.getFlightNumber());
 		flightobject.setFlightModel(flight.getFlightModel());
 		flightobject.setCarrierName(flight.getCarrierName());
 		flightobject.setSeatCapacity(flight.getSeatCapacity());
 		entitymanager.persist(flightobject);
+		}
 	}
 
 }

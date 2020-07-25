@@ -1,13 +1,13 @@
 package com.capgemini.flightManagement.exception;
 
-public class FlightNotFoundException  extends RuntimeException {
-
+public class FlightException extends RuntimeException{
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public FlightNotFoundException(String msg) {
+	public FlightException(String msg) {
 		super(msg);
 	}
 
