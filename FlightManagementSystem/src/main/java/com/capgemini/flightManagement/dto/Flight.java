@@ -15,7 +15,7 @@ public class Flight {
 	
 	@Id
 	@NotNull
-//	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	int flightId;
 	
 	
