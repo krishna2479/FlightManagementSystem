@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.capgemini.flightManagement.dao.FlightDaoI;
 import com.capgemini.flightManagement.dto.Flight;
+import com.capgemini.flightManagement.exception.FlightException;
 
 @Transactional
 @Service
@@ -19,6 +20,7 @@ public class FlightServiceImpl implements FlightServiceI {
 	@Override
 	public void addFlight(Flight flight) {
 		// TODO Auto-generated method stub
+		if(flight.getSeatCapacity()>200)throw new FlightException("Seating Capacity should not exceeds 200");
 		flightdao.addFlight(flight);
 	}
 
@@ -40,4 +42,10 @@ public class FlightServiceImpl implements FlightServiceI {
 		return flightdao.getAllFlight();
 	}
 
+	@Override
+	public Flight findById(int flightId) {
+		// TODO Auto-generated method stub
+		return flightdao.findById(flightId);
+	}
+	
 }

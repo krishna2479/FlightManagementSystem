@@ -47,8 +47,12 @@ public class FlightDaoImpl implements FlightDaoI {
 	public Flight findById(int flightId) {
 		// TODO Auto-generated method stub
 		Flight flight = entitymanager.find(Flight.class, flightId);
+		if(flight==null) {
+			throw new FlightNotFoundException("Flight not available");
+		}else
 		return flight;
 	}
+	
 
 	@Override
 	public void updateFlight(int flightId, Flight flight) {

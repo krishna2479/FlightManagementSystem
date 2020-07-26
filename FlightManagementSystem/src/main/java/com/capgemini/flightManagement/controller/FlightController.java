@@ -26,7 +26,6 @@ public class FlightController {
 	@PostMapping("/addFlight")
 	public ResponseEntity<Object> addFlight(@Validated @RequestBody Flight flight)
 	{
-		if(flight.getSeatCapacity()>200)throw new FlightException("Seating Capacity should not exceeds 200");
 		flightservice.addFlight(flight);
 		return new ResponseEntity<>("Flight added Successfully",HttpStatus.OK);
 	}
@@ -51,5 +50,11 @@ public class FlightController {
 	    flightservice.updateFlight(flightId, flight);
 	    return new ResponseEntity<>("Flight Updated SuccessFully", HttpStatus.OK);
 	}
-
+	
+	@GetMapping("/find/{flightId}")
+	public ResponseEntity<Object> findById(@PathVariable("flightId") int flightId)
+	{
+		return new ResponseEntity<>(flightservice.findById(flightId),HttpStatus.OK);
+	}
+	
 }

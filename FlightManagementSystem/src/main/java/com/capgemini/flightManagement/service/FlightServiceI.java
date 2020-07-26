@@ -13,5 +13,8 @@ public void addFlight(Flight flight );
 	public void updateFlight(int flightId, Flight flight);
 
 	public List<Flight> getAllFlight();
+	
+	public Flight findById(int flightId);
+	
 
 }
