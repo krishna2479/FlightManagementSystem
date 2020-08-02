@@ -1,33 +1,35 @@
 package com.capgemini.flightManagement.dto;
-
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import com.sun.istack.NotNull;
 
 @Entity
 @Table(name="FlightTable")
 public class Flight {
 	
 	@Id
-	@NotNull
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	int flightId;
 	
-	
-	@Column
-	int flightNumber;
-	
-	
-	@Column
+	@NotNull(message="flight model cannot be null")
+	@Size(min=5,max=5,message="flight model must be of 5 characters")
 	String flightModel;
 	
-	
-	@Column
+	@NotNull(message="carrier name cannot be null")
+	@Size(min=4,max=14,message="carrier name must be between 4 and 14 characters")
 	String carrierName;
 	
-	
-	@Column
+	@NotNull(message="seat capacity cannot be null")
+//	@Min(value = 100, message = "minimum seat capacity should be 100")
+//	@Max(value=200, message = "maximum seat capacity should not exceeds 200")
 	int seatCapacity;
 
 
@@ -44,22 +46,6 @@ public class Flight {
 	 */
 	public void setFlightId(int flightId) {
 		this.flightId = flightId;
-	}
-
-
-	/**
-	 * @return the flightNumber
-	 */
-	public int getFlightNumber() {
-		return flightNumber;
-	}
-
-
-	/**
-	 * @param flightNumber the flightNumber to set
-	 */
-	public void setFlightNumber(int flightNumber) {
-		this.flightNumber = flightNumber;
 	}
 
 
