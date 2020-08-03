@@ -18,14 +18,14 @@ public class BookingDaoImpl implements BookingDao {
 	EntityManager entitymanager;
 
 	@Override
-	public void create(Booking booking) {
+	public void addBooking(Booking booking) {
 		entitymanager.persist(booking);
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<Booking> retreive() {
+	public List<Booking> viewBooking() {
 		Query q = entitymanager.createQuery("from Booking s");
 		return q.getResultList();
 	}
@@ -37,7 +37,7 @@ public class BookingDaoImpl implements BookingDao {
 	}
 
 	@Override
-	public void delete(Long bookingId) {
+	public void cancelBooking(Long bookingId) {
 		Booking booking = entitymanager.find(Booking.class,bookingId);
 		entitymanager.remove(booking);
 	}

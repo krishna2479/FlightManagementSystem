@@ -8,11 +8,11 @@ import com.capgemini.flightManagement.dto.Booking;
 
 @Repository
 public interface BookingDao {
-	public void create(Booking booking);
+	public void addBooking(Booking booking);
 
-	public List<Booking> retreive();
+	public List<Booking> viewBooking();
 	public Booking findById(Long bookingId);
 	
-	public void delete(Long bookingId);
+	public void cancelBooking(Long bookingId);
 
 }

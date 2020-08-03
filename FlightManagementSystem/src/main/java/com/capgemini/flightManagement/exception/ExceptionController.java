@@ -46,5 +46,17 @@ public class ExceptionController
 		return new ResponseEntity<>(exception.getMessage(), HttpStatus.FORBIDDEN);
 	}
 	
+	@ExceptionHandler(value = BookingInvalidException.class)
+	public ResponseEntity<Object> handleNullException(BookingInvalidException exception)
+	{
+	return new ResponseEntity<>(exception.getMessage(), HttpStatus.FORBIDDEN);
+	}
+	
+	@ExceptionHandler(value = BookingDetailsNotFoundException.class)
+	public ResponseEntity<Object> handleNullException(BookingDetailsNotFoundException exception)
+	{
+	return new ResponseEntity<>(exception.getMessage(), HttpStatus.FORBIDDEN);
+	}
+	
 	
 }

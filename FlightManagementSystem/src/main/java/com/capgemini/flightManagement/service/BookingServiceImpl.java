@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.capgemini.flightManagement.dao.BookingDao;
 import com.capgemini.flightManagement.dto.Booking;
+import com.capgemini.flightManagement.dto.Flight;
+import com.capgemini.flightManagement.exception.BookingInvalidException;
 
 @Service
 public class BookingServiceImpl implements BookingService {
@@ -14,18 +16,30 @@ public class BookingServiceImpl implements BookingService {
 	BookingDao bookingdao;
 
 	@Override
-	public void create(Booking booking) {
+	public void addBooking(Booking booking) throws BookingInvalidException {
 		
-		bookingdao.create(booking);
+		//here implicitly giving the data for flight.class
+		Flight flight =new Flight();
+		flight.setCarrierName("Economy");
+		flight.setFlightId(101);
+//		flight.setFlightNumber(1001);
+		flight.setSeatCapacity(200);
+		flight.setFlightModel("A1234");
+		booking.setFlight(flight);
+		if(booking.getNoOfPassengers()>booking.getFlight().getSeatCapacity())
+		{
+			throw new BookingInvalidException("check details again");
+		}
+		bookingdao.addBooking(booking);
 		
 		
 		
 	}
 
 	@Override
-	public List<Booking> retreive() {
+	public List<Booking> viewBooking() {
 		// TODO Auto-generated method stub
-		return bookingdao.retreive();
+		return bookingdao.viewBooking();
 	}
 
 	@Override
@@ -35,8 +49,8 @@ public class BookingServiceImpl implements BookingService {
 	}
 
 	@Override
-	public void delete(Long bookingId) {
-		bookingdao.delete(bookingId);
+	public void cancelBooking(Long bookingId) {
+		bookingdao.cancelBooking(bookingId);
 		// TODO Auto-generated method stub
 		
 	}
