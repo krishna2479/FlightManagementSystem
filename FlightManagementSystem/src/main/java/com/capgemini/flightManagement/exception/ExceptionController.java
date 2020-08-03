@@ -40,5 +40,11 @@ public class ExceptionController
 	return new ResponseEntity<>(exception.getMessage(), HttpStatus.FORBIDDEN);
 	}
 	
+	@ExceptionHandler(value = ScheduleFlightException.class)
+	public ResponseEntity<Object> handleNullException(ScheduleFlightException exception)
+	{
+		return new ResponseEntity<>(exception.getMessage(), HttpStatus.FORBIDDEN);
+	}
+	
 	
 }
