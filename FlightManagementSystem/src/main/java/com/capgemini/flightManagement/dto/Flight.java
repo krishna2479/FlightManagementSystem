@@ -28,8 +28,7 @@ public class Flight {
 	String carrierName;
 	
 	@NotNull(message="seat capacity cannot be null")
-//	@Min(value = 100, message = "minimum seat capacity should be 100")
-//	@Max(value=200, message = "maximum seat capacity should not exceeds 200")
+	@Min(value = 1, message = "minimum seat capacity should be 1")
 	int seatCapacity;
 
 

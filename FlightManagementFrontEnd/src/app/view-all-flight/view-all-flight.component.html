@@ -1,0 +1,32 @@
+<!-- <input [(ngModel)]="searchText" type="date"   placeholder="search text goes here"> -->
+<table border="5px" cellpadding ="5" cellspacing = "5" class="table">
+ 
+  <thead style="background-color:rgb(148, 143, 143);">
+    <th>SheduleFlightId</th>
+    <th>Source</th>
+    <th>Destination</th>
+    <th>arrivalDate</th>
+    <th>DepartureDate</th>
+    <th>arrivalTime</th>
+    <th>DepartureTime</th>
+    <th>TicketCost</th>
+    <th>Flight Id</th>
+    <th>Delete</th>
+    <!-- <th colspan="2" style="color: black;">BookFlight</th> -->
+  </thead>
+  <tbody>
+    <tr *ngFor="let view of sflights">
+      <td>{{view.scheduleflightid}}</td>
+      <td>{{view.sourceAirport}}</td>
+      <td>{{view.destinationAirport}}</td>
+      <td>{{view.arrivalDate}}</td>
+      <td>{{view.departureDate}}</td>
+      <td>{{view.arrivalTime}}</td>
+      <td>{{view.departureTime}}</td>
+      <td>{{view.ticketCost}}</td>
+      <td>{{view.flight.flightId}}</td>
+      <!-- <td><button class="btn-info" onclick="" routerLink="/AddBooking">Book</button></td> -->
+      <td><button class="btn btn-danger" (click)="delete(view.scheduleflightid)" >Delete</button></td>
+    </tr>
+  </tbody>
+</table>

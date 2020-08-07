@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.flightManagement.dto.Flight;
 import com.capgemini.flightManagement.exception.FlightException;
-import com.capgemini.flightManagement.exception.InvalidInput;
 import com.capgemini.flightManagement.service.FlightServiceI;
 
 @CrossOrigin(origins="http://localhost:4200")

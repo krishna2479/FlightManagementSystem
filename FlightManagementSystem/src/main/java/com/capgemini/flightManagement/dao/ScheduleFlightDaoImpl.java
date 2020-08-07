@@ -18,7 +18,7 @@ import com.capgemini.flightManagement.exception.ScheduleFlightException;
  *         Version 1.0 
  *         Created Date 31-JUL-2020
  *************************************************************************************************************************/
-@Transactional
+//@Transactional
 @Repository
 public class ScheduleFlightDaoImpl implements ScheduleFlightDao {
 	
@@ -28,7 +28,7 @@ public class ScheduleFlightDaoImpl implements ScheduleFlightDao {
 	@Override
 	public List<ScheduleFlight> getAllSchedule() {
 		// TODO Auto-generated method stub
-		Query query = em.createQuery("from SheduleFlight sf");
+		Query query = em.createQuery("from ScheduleFlight sf");
 		return query.getResultList();
 	}
 	@Override

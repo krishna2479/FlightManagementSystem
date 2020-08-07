@@ -1,0 +1,40 @@
+<section class="col-md-10 mx-auto mt-4">
+
+  <div class="alert alert-success" *ngIf="info !=undefined">{{info}}</div>
+      <div class="alert alert-danger" *ngIf="errorInfo != undefined">{{errorInfo}}</div>
+  
+      <form #frm="ngForm" (ngSubmit)="searchFlight()">
+  
+          <div class="mt-3"><strong>Schedule Flight ID</strong></div>
+          <div><input type="number" name="txttitle" [(ngModel)]="schedule.scheduleflightid" class="form-conrol" id="scheduleflightid"
+               placeholder="Enter Schedule ID" required/></div>
+  
+      <div class="mt-3"><input type="submit"[disabled]="!frm.valid" class="btn btn-outline-dark"/></div>
+  </form>
+  <table  border="5" cellpadding ="5" cellspacing = "5" class="table">
+ 
+    <thead style="background-color:rgb(148, 143, 143);">
+      <th>SheduleFlightId</th>
+      <th>Source</th>
+      <th>Destination</th>
+      <th>arrivalDate</th>
+      <th>DepartureDate</th>
+      <th>arrivalTime</th>
+      <th>DepartureTime</th>
+      <th>TicketCost</th>
+      <th>Flight Id</th>
+  
+    </thead>
+    <tbody>
+        <td>{{schedule.scheduleflightid}}</td>
+        <td>{{schedule.sourceAirport}}</td>
+        <td>{{schedule.destinationAirport}}</td>
+        <td>{{schedule.arrivalDate}}</td>
+        <td>{{schedule.departureDate}}</td>
+        <td>{{schedule.arrivalTime}}</td>
+        <td>{{schedule.departureTime}}</td>
+        <td>{{schedule.ticketCost}}</td>
+        <td>{{schedule.flight.flightId}}</td>
+    </tbody>
+  </table>
+  </section>

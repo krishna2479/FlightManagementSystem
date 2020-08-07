@@ -27,7 +27,7 @@ public class FlightServiceImpl implements FlightServiceI {
 	 * @throws FlightException
 	 **************************************************************************************************/
 	@Override
-	public void addFlight(Flight flight) throws Exception{
+	public void addFlight(Flight flight) {
 
 		if(flight.getSeatCapacity()>200)throw new FlightException("Seating Capacity should not exceeds 200");
 		flightdao.addFlight(flight);

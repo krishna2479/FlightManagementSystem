@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name="BookingDetails")
+@Table(name="BookingDetail")
 public class Booking {
 	
 	Booking()
@@ -24,7 +24,7 @@ public class Booking {
 
 	@Id
 	//It will generate the value for bookingId in sequence 
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Long BookingId;
 	@Column @NotNull
 	private String customerName;

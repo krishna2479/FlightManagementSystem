@@ -10,7 +10,7 @@ import com.capgemini.flightManagement.dto.Flight;
 @Repository
 public interface FlightDaoI {
 
-public void addFlight(Flight flight) throws Exception;
+public void addFlight(Flight flight);
 	
     public void deleteFlight(int flightId);
 

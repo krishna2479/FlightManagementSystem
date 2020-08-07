@@ -18,7 +18,7 @@ public class FlightDaoImpl implements FlightDaoI {
 	EntityManager entitymanager;
 
 	@Override
-	public void addFlight(Flight flight) throws Exception {
+	public void addFlight(Flight flight) {
 
 		entitymanager.persist(flight);
 	}

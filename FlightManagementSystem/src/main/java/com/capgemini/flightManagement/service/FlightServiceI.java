@@ -6,7 +6,7 @@ import com.capgemini.flightManagement.dto.Flight;
 
 public interface FlightServiceI {
 	
-public void addFlight(Flight flight ) throws Exception;
+public void addFlight(Flight flight );
 	
 	public void deleteFlight(int flightId );
 	

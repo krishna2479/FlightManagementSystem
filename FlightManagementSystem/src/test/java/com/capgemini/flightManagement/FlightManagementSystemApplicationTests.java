@@ -40,7 +40,7 @@ class FlightManagementSystemApplicationTests {
 	
 	@Test
 	void TC_4() {
-		assertEquals(120, service.findById(101).getSeatCapacity());
+		assertEquals(120, service.findById(111).getSeatCapacity());
 	}
 	
 	@Test
